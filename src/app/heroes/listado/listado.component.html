@@ -1,0 +1,26 @@
+<!-- TITULO: -->
+<p>Listado de Frameworks</p>
+
+<div *ngIf="heroeBorrado; else noBorrado">
+    <h3>Héroe Borrado: <small>{{heroeBorrado}}</small></h3>
+</div>
+
+<ng-template #noBorrado>
+    <h3>No ha borrado nada.</h3>
+</ng-template>
+
+
+<button (click)="borrarHeroe()">
+    Borrar
+</button>
+
+<!-- Creamos un UnderList y dentro un ListItem -->
+
+<ul>
+    <!-- Esto es muy parecido al ciclo FOR pero en el mismo HTML, declaramos una variable y la propiedad que hemos definido en ListadoComponent del arreglo.-->
+    <!-- let heroe es la referencia a cada uno de los valores o iteraciones de los valores que va estar dentro heroe. -->
+    <li *ngFor="let heroe of heroes, let i = index">
+        <!-- Heroe es tipo string y lo ponemos así: -->
+        {{ i + 1 }} - {{ heroe }}
+    </li>
+</ul>
